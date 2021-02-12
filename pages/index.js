@@ -1,4 +1,4 @@
-import Menu from '../src/components/commons/Menu2'
+import Menu from '../src/components/commons/Menu'
 
 // import styled from 'styled-components'
 // const Title = styled.h1`
