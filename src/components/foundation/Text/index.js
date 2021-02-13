@@ -16,17 +16,10 @@ Object.entries(typographyVariants).map(([key, value]) => {
     `
 })
 
-export const TextStyleVariantMap = mapa;
-
-// return css`
-//     font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize };
-//     font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight };
-//     line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight };
-// `;
-
+export const TextStyleVariants = mapa;
 
 const TextBase = styled.span`
-    ${({ variant }) => TextStyleVariantMap[variant] };
+    ${({ variant }) => TextStyleVariants[variant] };
 `;
 
 export default function Text({ tag, variant, children, ...props }) {
