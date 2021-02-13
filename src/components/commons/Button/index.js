@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 import { TextStyleVariants } from '../../foundation/Text';
+import { propToStyle } from '../../../theme/utils/propToStyle';
 
 const ButtonDefault = css`
     color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
@@ -19,20 +20,24 @@ export const Button = styled.button`
     padding: 12px 26px;
     font-weight: bold;
     opacity: 1;
-    border-radius: ${({ theme }) => theme.borderRadius};
     transition: ${({ theme }) => theme.transition};
+    border-radius: ${({ theme }) => theme.borderRadius};
     
     ${breakpointsMedia({
-        xs: css`
+    xs: css`
             ${TextStyleVariants.smallestException}
         `,
-        md: css`
+    md: css`
             padding: 12px 43px;
             ${TextStyleVariants.paragraph1}
         `,
     })}
 
-    ${( { ghost } ) => ghost ? ButtonGhost : ButtonDefault };
+    ${propToStyle('margin')}
+    ${propToStyle('display')}
+
+
+    ${({ ghost }) => ghost ? ButtonGhost : ButtonDefault};
     &:hover,
     &:focus {
         opacity: .5;
