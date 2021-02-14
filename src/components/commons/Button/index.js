@@ -35,8 +35,8 @@ const Button = styled.button`
   })}
 
     ${propToStyle('margin')}
+    ${propToStyle('marginTop')}
     ${propToStyle('display')}
-
 
     ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)};
     &:hover,

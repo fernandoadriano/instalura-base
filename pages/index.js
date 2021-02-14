@@ -67,6 +67,10 @@ export default function Home() {
                   md: 'initial',
                 }}
                 display="block"
+                marginTop={{
+                  xs: '24px',
+                  md: '40px',
+                }}
               >
                 Cadastrar
               </Button>
