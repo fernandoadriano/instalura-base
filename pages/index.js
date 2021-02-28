@@ -10,9 +10,9 @@ import Text from '../src/components/foundation/Text';
 
 export default function Home() {
   const [isModalOpen, setModalState] = useState(false);
+
   return (
     <Box
-      flex="1"
       display="flex"
       flexWrap="wrap"
       flexDirection="column"
