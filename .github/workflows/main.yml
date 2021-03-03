@@ -22,12 +22,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: action/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: "14.15.0"
           
       # Runs a set of commands using the runners shell
+      - name: Instalar dependencias
+        run:
+          yarn install
+
       - name: Rodar o linter
         run:
           yarn lint
-          
