@@ -30,4 +30,3 @@ jobs:
       - name: Rodar o linter
         run:
           yarn lint
-          
