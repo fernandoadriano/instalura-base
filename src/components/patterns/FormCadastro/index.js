@@ -1,22 +1,69 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import { Lottie } from '@crello/react-lottie';
+import sucessAnimation from './animations/sucess.json';
+import errorAnimation from './animations/error.json';
+
 import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import Box from '../../layout/Box';
 import Grid from '../../layout/Grid';
 import Text from '../../foundation/Text';
 
+const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
 const FormContent = () => {
+  const [isFormSubmited, setIsFormSubmited] = React.useState(false);
+  const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
+
   const [userInfo, setUserInfo] = useState({
-    email: '',
-    usuario: '',
+    nome: 'Adriano',
+    usuario: 'fadriano01',
   });
 
   const handleChange = (event) => setUserInfo({ ...userInfo, [event.target.getAttribute('name')]: event.target.value });
-  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.email.length === 0;
+  const isFormInvalid = userInfo.usuario.length === 0 || userInfo.nome.length === 0;
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    setIsFormSubmited(true);
+
+    // Data Transfer Object
+    const userDTO = {
+      username: userInfo.usuario,
+      name: userInfo.nome,
+    };
+
+    fetch('https://instalura-api.vercel.app/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userDTO),
+    })
+      .then((respostaDoServidor) => {
+        if (respostaDoServidor.ok) {
+          return respostaDoServidor.json();
+        }
+
+        throw new Error('Não foi possível cadastrar o usuário agora :(');
+      })
+      .then((respostaConvertidaEmObjeto) => {
+        setSubmissionStatus(formStates.DONE);
+        // eslint-disable-next-line no-console
+        console.log(respostaConvertidaEmObjeto);
+      })
+      .catch((error) => {
+        setSubmissionStatus(formStates.ERROR);
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
   };
 
   return (
@@ -40,9 +87,9 @@ const FormContent = () => {
 
       <div>
         <TextField
-          placeholder="E-mail"
-          name="email"
-          value={userInfo.email}
+          placeholder="Nome"
+          name="nome"
+          value={userInfo.nome}
           onChange={handleChange}
         />
       </div>
@@ -63,6 +110,34 @@ const FormContent = () => {
       >
         Cadastrar
       </Button>
+
+      {isFormSubmited && submissionStatus === formStates.DONE && (
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
+          <Lottie
+            width="150px"
+            height="150px"
+            config={{ animationData: sucessAnimation, loop: true, autoplay: true }}
+          />
+          {/* https://lottiefiles.com/43920-success-alert-icon */}
+        </Box>
+      )}
+
+      {isFormSubmited && submissionStatus === formStates.ERROR && (
+        <Box
+          display="flex"
+          justifyContent="center"
+        >
+          <Lottie
+            width="150px"
+            height="150px"
+            config={{ animationData: errorAnimation, loop: true, autoplay: true }}
+          />
+          {/* https://lottiefiles.com/43920-success-alert-icon */}
+        </Box>
+      )}
     </form>
   );
 };
