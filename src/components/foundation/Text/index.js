@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 import typographyVariants from '../../../theme/typographyVariants';
 import propToStyle from '../../../theme/utils/propToStyle';
-import { Link } from '../../commons/Link';
+import Link from '../../commons/Link';
 
 const mapa = {};
 //

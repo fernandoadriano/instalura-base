@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import NextLink from 'next/link';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import get from 'lodash/get';
+import PropTypes from 'prop-types';
 
 const StyledLink = styled.a`
   color: inherit;
@@ -17,16 +18,15 @@ const StyledLink = styled.a`
     opacity: .5;
   }
 `;
-
-// eslint-disable-next-line import/prefer-default-export
-export const Link = ({ children, href, ...props }) => (
-  <NextLink href={href} passHref>
-    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-    <StyledLink {...props}>
-      {children}
-    </StyledLink>
-  </NextLink>
-);
+export default function Link({ href, children, ...props }) {
+  return (
+    <NextLink href={href} passHref>
+      <StyledLink {...props}>
+        {children}
+      </StyledLink>
+    </NextLink>
+  );
+}
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,
