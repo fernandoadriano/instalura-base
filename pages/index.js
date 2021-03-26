@@ -2,7 +2,7 @@ import React from 'react';
 import Text from 'src/components/foundation/Text';
 import Button from 'src/components/commons/Button';
 import Grid from 'src/components/layout/Grid';
-import { WebsitePageContext } from 'src/components/wrappers/WebsitePageOld';
+import { WebsitePageContext } from 'src/components/wrappers/WebSitePage';
 import Box from 'src/components/layout/Box';
 import websitePageHOC from 'src/components/wrappers/WebSitePage/hoc';
 
