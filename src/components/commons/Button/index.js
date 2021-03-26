@@ -57,7 +57,7 @@ const ButtonWrapper = styled.button`
     }
 `;
 
-export const Button = ({ href, ...props }) => {
+const Button = ({ href, ...props }) => {
   const isLink = Boolean(href);
   const componentTag = isLink ? Link : 'button';
 
