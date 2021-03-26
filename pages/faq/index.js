@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
 import FAQScreen from '../../src/components/screens/FAQScreen';
