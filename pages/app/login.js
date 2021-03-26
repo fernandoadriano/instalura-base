@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import React from 'react';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
