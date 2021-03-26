@@ -5,10 +5,10 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
+import breakpointsMedia from 'src/theme/utils/breakpointsMedia';
+import { TextStyleVariants } from 'src/components/foundation/Text';
+import propToStyle from 'src/theme/utils/propToStyle';
 import Link from '../Link';
-import breakpointsMedia from '../../../theme/utils/breakpointsMedia';
-import { TextStyleVariants } from '../../foundation/Text';
-import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonDefault = css`
     color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};

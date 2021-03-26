@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from '../../foundation/Text';
-import Box from '../../layout/Box';
-import Grid from '../../layout/Grid';
+import Text from 'src/components/foundation/Text';
+import Box from 'src/components/layout/Box';
+import Grid from 'src/components/layout/Grid';
 
 export default function FAQScreen({ faqCategories }) {
   return (

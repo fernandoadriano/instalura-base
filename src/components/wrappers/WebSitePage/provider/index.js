@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import theme from '../../../../theme';
-import GlobalStyle from '../../../../theme/GlobalStyle';
+import theme from 'src/theme';
+import GlobalStyle from 'src/theme/GlobalStyle';
 
 export default function WebsiteGlobalProvider({ children }) {
   return (

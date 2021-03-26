@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Logo from '../../../theme/Logo';
+import Logo from 'src/theme/Logo';
+import Text from 'src/components/foundation/Text';
+
 import MenuWrapper from './styles/MenuWrapper';
 import Button from '../Button';
-import Text from '../../foundation/Text';
 
 const links = [
   {
