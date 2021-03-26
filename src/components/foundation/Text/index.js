@@ -5,9 +5,9 @@ import styled, { css } from 'styled-components';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 
-import typographyVariants from '../../../theme/typographyVariants';
-import propToStyle from '../../../theme/utils/propToStyle';
-import Link from '../../commons/Link';
+import typographyVariants from 'src/theme/typographyVariants';
+import propToStyle from 'src/theme/utils/propToStyle';
+import Link from 'src/components/commons/Link';
 
 const mapa = {};
 //

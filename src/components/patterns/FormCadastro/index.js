@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Lottie } from '@crello/react-lottie';
+
+import Button from 'src/components/commons/Button';
+import TextField from 'src/components/forms/TextField';
+import Box from 'src/components/layout/Box';
+import Grid from 'src/components/layout/Grid';
+import Text from 'src/components/foundation/Text';
+
 import sucessAnimation from './animations/sucess.json';
 import errorAnimation from './animations/error.json';
-
-import Button from '../../commons/Button';
-import TextField from '../../forms/TextField';
-import Box from '../../layout/Box';
-import Grid from '../../layout/Grid';
-import Text from '../../foundation/Text';
 
 const formStates = {
   DEFAULT: 'DEFAULT',

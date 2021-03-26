@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from 'styled-components';
-import Grid from '../../layout/Grid';
-import Box from '../../layout/Box';
-import Text from '../../foundation/Text';
+import Grid from 'src/components/layout/Grid';
+import Box from 'src/components/layout/Box';
+import Text from 'src/components/foundation/Text';
 
 export default function FAQQuestionScreen({ category, question }) {
   const theme = useTheme();
