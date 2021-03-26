@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import websitePageHOC from 'src/components/wrappers/WebsitePage/hoc';
+import websitePageHOC from 'src/components/wrappers/WebSitePage/hoc';
 import FAQScreen from 'src/components/screens/FAQScreen';
 
 function FAQPage({ faqCategories }) {
