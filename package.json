@@ -7,6 +7,8 @@
     "export": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore",
+    "test": "jest",
+    "test:watch": "jest --watch",    
     "test:integration:open": "cypress open",
     "test:integration": "cypress run --headless"
   },
