@@ -1,4 +1,5 @@
-/* eslint-disable import/prefer-default-export */
+import { setCookie, destroyCookie } from 'nookies';
+
 async function HttpClient(url, { headers, body, ...options }) {
   return fetch(url, {
     headers: {
@@ -17,6 +18,7 @@ async function HttpClient(url, { headers, body, ...options }) {
     });
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export const loginService = {
   async login({ username, password }) {
     return HttpClient('https://instalura-api-omariosouto.vercel.app/api/login', {
@@ -27,10 +29,21 @@ export const loginService = {
       },
     })
       .then((respostaConvertida) => {
+        const { token } = respostaConvertida.data;
+        const DAY_IN_SECONDS = 86400;
         // Salvar o Token
+        setCookie(null, 'APP_TOKEN', token, {
+          path: '/',
+          maxAge: DAY_IN_SECONDS * 7,
+        });
+
         // Escrever os testes
-        console.log(respostaConvertida);
-        return respostaConvertida;
+        return {
+          token,
+        };
       });
+  },
+  logout() {
+    destroyCookie(null, 'APP_TOKEN');
   },
 };
