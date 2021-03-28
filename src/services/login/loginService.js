@@ -19,19 +19,17 @@ async function HttpClient(url, { headers, body, ...options }) {
 
 export const loginService = {
   async login({ username, password }) {
-    return HttpClient('https://instalura-api.omariosouto.vercel.app/api/login', {
+    return HttpClient('https://instalura-api-omariosouto.vercel.app/api/login', {
       method: 'POST',
       body: {
         username, // 'omariosouto'
         password, // 'senhasegura'
       },
     })
-      // eslint-disable-next-line arrow-body-style
       .then((respostaConvertida) => {
         // Salvar o Token
         // Escrever os testes
-        // console.log(respostaConvertida);
-
+        console.log(respostaConvertida);
         return respostaConvertida;
       });
   },
