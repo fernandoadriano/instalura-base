@@ -28,7 +28,7 @@ module.exports = {
         alias: {
           src: './src',
         },
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.spec.js'],
       },
     },
   },
