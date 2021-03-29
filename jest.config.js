@@ -9,4 +9,7 @@ module.exports = {
     '<rootDir>/cypress/',
     '<rootDir>/dist/',
   ],
+  moduleNameMapper: {
+    '^src(.*)$': '<rootDir>/src/$1',
+  },
 };
