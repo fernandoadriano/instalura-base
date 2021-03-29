@@ -77,3 +77,16 @@ export default () => (
 
 </details>
 
+# Instalar o Testing Library
+
+```bash
+yarn add @testing-library/react-hooks @testing-library/jest-dom @testing-library/react jest-styled-components jest-canvas-mock eslint-plugin-jest --dev
+```
+
+# Configurar o JEST para achar o diretório ```src```
+
+```js
+moduleNameMapper: {
+    '^src(.*)$': '<rootDir>/src/$1',
+  },
+```
