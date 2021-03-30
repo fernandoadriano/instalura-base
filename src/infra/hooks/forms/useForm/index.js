@@ -1,6 +1,17 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 
+function formatErrors(yupErrorsInner = []) {
+  return yupErrorsInner.reduce((errorObjectAcc, currentError) => {
+    const fieldName = currentError.path;
+    const errorMessage = currentError.message;
+    return {
+      ...errorObjectAcc,
+      [fieldName]: errorMessage,
+    };
+  }, {});
+}
+
 export function useForm({
   initialValues,
   onSubmit,
@@ -18,22 +29,19 @@ export function useForm({
       setErrors({});
       setIsFormDisabled(false);
     } catch (err) {
-      const formatedErrors = err.inner.reduce((errorObjectAcc, currentError) => {
-        const fieldName = currentError.path;
-        const errorMessage = currentError.message;
-        return {
-          ...errorObjectAcc,
-          [fieldName]: errorMessage,
-        };
-      }, {});
+      const formatedErrors = formatErrors(err.inner);
       setErrors(formatedErrors);
       setIsFormDisabled(true);
     }
   }
 
   React.useEffect(() => {
-    validateValues(values);
+    validateValues(values)
+      .catch(() => {
+        // Tratar o Erro
+      });
   }, [values]);
+
   return {
     values,
     handleSubmit(event) {
