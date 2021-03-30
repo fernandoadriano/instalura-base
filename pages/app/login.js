@@ -6,7 +6,7 @@ import Text from 'src/components/foundation/Text';
 import { WebsitePageContext } from 'src/components/wrappers/WebSitePage';
 import websitePageHOC from 'src/components/wrappers/WebSitePage/hoc';
 import Logo from 'src/theme/Logo';
-import LoginForm from '../../src/components/patterns/FormLogin';
+import LoginForm from 'src/components/patterns/FormLogin';
 
 // Essa página e desafio, e vamos dar pronto no próximo módulo o 04
 function LoginScreen() {

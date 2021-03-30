@@ -42,7 +42,7 @@ export default function Menu({ onCadastrarClick }) {
         ))}
       </MenuWrapper.CentralSide>
       <MenuWrapper.RightSide>
-        <Button ghost variant="secondary.main" href="app/login">
+        <Button ghost variant="secondary.main" href="/app/login/">
           Entrar
         </Button>
         <Button variant="primary.main" onClick={onCadastrarClick}>

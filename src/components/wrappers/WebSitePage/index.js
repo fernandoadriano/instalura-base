@@ -11,9 +11,6 @@ import SEO from 'src/components/commons/SEO';
 export const WebsitePageContext = React.createContext({
   toggleModalCadastro: () => {},
 });
-//
-//
-//
 export default function WebsitePageWrapper({
   children,
   seoProps,
