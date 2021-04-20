@@ -44,7 +44,7 @@ export const loginService = {
         };
       });
   },
-  async logout(destroyCookieModule = destroyCookie) {
-    destroyCookieModule(null, 'LOGIN_COOKIE_APP_TOKEN');
+  async logout(ctx, destroyCookieModule = destroyCookie) {
+    destroyCookieModule(ctx, 'LOGIN_COOKIE_APP_TOKEN', { path: '/' });
   },
 };
