@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import typographyVariants from 'src/theme/typographyVariants';
 import propToStyle from 'src/theme/utils/propToStyle';
 import Link from 'src/components/commons/Link';
+import { WebsitePageContext } from 'src/components/wrappers/WebSitePage/context';
 
 const mapa = {};
 //
@@ -30,8 +31,14 @@ const TextBase = styled.span`
 `;
 
 export default function Text({
-  tag, variant, children, href, ...props
+  tag, variant, children, href, cmsKey, ...props
 }) {
+  const websitePageContext = React.useContext(WebsitePageContext);
+
+  const componentContent = cmsKey
+    ? websitePageContext.getCMSContent(cmsKey)
+    : children;
+
   if (href) {
     return (
       <TextBase
@@ -41,14 +48,14 @@ export default function Text({
       // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
-        {children}
+        {componentContent}
       </TextBase>
     );
   }
 
   return (
     <TextBase as={tag} variant={variant} {...props}>
-      {children}
+      {componentContent}
     </TextBase>
   );
 }
@@ -58,6 +65,7 @@ Text.propTypes = {
   variant: PropTypes.string,
   children: PropTypes.node,
   href: PropTypes.string,
+  cmsKey: PropTypes.string,
 };
 
 Text.defaultProps = {
@@ -65,4 +73,5 @@ Text.defaultProps = {
   variant: 'paragraph1',
   children: null,
   href: '',
+  cmsKey: undefined,
 };
