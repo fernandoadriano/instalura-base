@@ -40,7 +40,7 @@
     "@types/jest": "^26.0.22",
     "babel-plugin-styled-components": "^1.8.0",
     "cypress": "^7.1.0",
-    "eslint": "^7.21.0",
+    "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-custom-alias": "^1.2.0",
     "eslint-plugin-cypress": "^2.11.2",
