@@ -9,6 +9,7 @@
     "lint": "eslint --ignore-path .gitignore",
     "test": "jest",
     "test:watch": "jest --watch",
+    "cypress": "cypress",
     "test:integration:open": "cypress open",
     "test:integration": "cypress run --headless",
     "test:integration:build": "start-server-and-test build/start http-get://localhost:3000 test:integration",
